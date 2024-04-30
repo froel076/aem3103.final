@@ -28,10 +28,51 @@ tspan = [to tf];
 xo = [V;Gam;H;R];
 [ta,xa] = ode23('EqMotion',tspan,xo);
 
-% 
+% Varying Velocity at Nominal Gamma
+Vh = 7.5;
+GamN = -0.18;
+x1 = [Vh;GamN;H;R];
+[tb, xb] = ode23('EqMotion',tspan, x1);
+
+Vn = 3.55;
+x2 = [Vn;GamN;H;R];
+[tc, xc] = ode23('EqMotion', tspan, x2);
+
+Vl = 2;
+x3 = [Vl;GamN;H;R];
+[td, xd] = ode23('EqMotion', tspan, x3);
+
+% Varying Gamma at Nominal Velocity
+GamH = -0.5;
+x4 = [Vn;GamH;H;R];
+[te, xe] = ode23('EqMotion', tspan, x4);
+
+GamL = 0.4;
+x5 = [Vn;GamL;H;R];
+[tf, xf] = ode23('EqMotion', tspan, x5);
 
 figure
-plot(xa(:,4),xa(:,3),xb(:,4),xb(:,3),xc(:,4),xc(:,3),xd(:,4),xd(:,3))
+subplot(2,1,2)
+plot(xa(:,4),xa(:,3))
+hold on
+plot(xb(:,4),xb(:,3), "color", 'g')
+plot(xc(:,4),xc(:,3), "color", 'k')
+plot(xd(:,4),xd(:,3), "color", 'r');
 xlabel('Range, m'), ylabel('Height, m'), grid
+title('Varying Velocity at Nominal Gamma');
+
+subplot(2,1,1)
+plot(xa(:,4),xa(:,3))
+hold on
+plot(xe(:,4),xe(:,3), "color", 'g')
+plot(xc(:,4),xc(:,3), "color", 'k')
+plot(xf(:,4),xf(:,3), "color", 'r')
+xlabel('Range, m'), ylabel('Height, m'), grid
+title('Varying Gamma at Nomial Velocity')
+
+%% Question 3
+
+
+
 
 
