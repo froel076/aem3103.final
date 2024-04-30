@@ -73,6 +73,22 @@ title('Varying Gamma at Nomial Velocity')
 %% Question 3
 
 
+Vrand = 2 + (7.5 - 2).*rand(100,1);
+Grand = -0.4 + (0.5 +0.4).*rand(100,1);
+
+%Plot Details
+figure 
+hold on
+for i = 1:1:100
+    xrand = [Vrand(i,:), Grand(i,:), H, R];
+    [tR, xR] = ode23('EqMotion', tspan, xrand);
+
+    plot(xR(:,4), xR(:,3), 'Color', 'k')
+
+    i = i + 1;
+end
+title('Varying Velocity and Gamma within Higher and Lower Range')
+xlabel('Range, m'), ylabel('Height, m'), grid
 
 
 
