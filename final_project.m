@@ -118,6 +118,16 @@ y_fit1 = polyval(p1, tspan1);
 p2 = polyfit(tspan1, avgHeight, 5);
 y_fit2 = polyval(p2, tspan1);
 
+% Plot height and range with fits
+figure;
+subplot(2,1,1); hold on;
+plot(tspan1,avgRange, '-')
+plot(tspan1, y_fit1, '.')
+xlabel('Time, s'); ylabel('Range, m')
 
+subplot(2,1,2); hold on;
+plot(tspan1, avgHeight, '-');
+plot(tspan1, y_fit2, '.');
+xlabel('Time, s'); ylabel('Altitude, m');
 
 
