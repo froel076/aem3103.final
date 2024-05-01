@@ -130,4 +130,25 @@ plot(tspan1, avgHeight, '-');
 plot(tspan1, y_fit2, '.');
 xlabel('Time, s'); ylabel('Altitude, m');
 
+%% Question 5
+
+syms x
+
+x = tspan1;
+eqn1 = x*p1(1) + p1(2);
+dr_dt = diff(eqn1);
+
+eqn2 = x.^5*p2(1) + x.^4*p2(2) + x.^3*p2(3) + x.^2*p2(4) + x*p2(5) + p2(6);
+dh_dt = diff(eqn2);
+
+figure
+subplot(2,1,1);
+plot(tspan1, eqn1);
+xlabel ('Time, s'); ylabel('Range, m');
+title('Derivative of Range with Respect to Time')
+
+subplot(2,1,2);
+plot(tspan1, eqn2);
+xlabel ('Time, s'); ylabel('Altitude, m');
+title('Derivative of Height with Respect to Time')
 
