@@ -43,8 +43,8 @@ to this graph.
 
  ## Fig. 3: Time Derivatives
  <Time-derivative of height and range for the fitted trajectory>
- ![image](https://github.com/froel076/aem3103.final/assets/168198103/119aa138-040d-4872-a254-c1a0dcb66d7e)
- ![image](https://github.com/froel076/aem3103.final/assets/168198103/af4c6d0f-23d9-4215-b1d9-0f3e42c516f0)
+ ![image](https://github.com/froel076/aem3103.final/assets/168198103/e705d198-2047-4654-9204-fad9c221e61c)
+ ![image](https://github.com/froel076/aem3103.final/assets/168198103/1cfc3345-4af3-44fc-89a6-addd5d9861d8)
 
 These images show the derivative of range with respect to time and height with respect to time. The range equation is a first degree polynomial which is why its graph is linear. The height equation is a fifth
 degree polynomial which is why its graph is non-linear.
