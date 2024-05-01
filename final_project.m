@@ -97,7 +97,6 @@ for i = 1:100
     height(1:61, i) = xR(:,3);
     
 end
-hold on
 title('Varying Velocity and Gamma within Higher and Lower Range')
 xlabel('Range, m'), ylabel('Height, m'), grid
 
@@ -111,12 +110,14 @@ xlabel('Range, m'), ylabel('Height, m'), grid
     avgHeight(j) = mean(height(j,:));
 
  end
-
+hold on
 % Fit polynomials to average height and range
 p1 = polyfit(tspan1, avgRange, 1);
 y_fit1 = polyval(p1, tspan1);
 p2 = polyfit(tspan1, avgHeight, 5);
 y_fit2 = polyval(p2, tspan1);
+
+plot(y_fit1,y_fit2, 'Linewidth', 4)
 
 % Plot height and range with fits
 figure;
@@ -129,6 +130,8 @@ subplot(2,1,2); hold on;
 plot(tspan1, avgHeight, '-');
 plot(tspan1, y_fit2, '.');
 xlabel('Time, s'); ylabel('Altitude, m');
+
+
 
 %% Question 5
 
