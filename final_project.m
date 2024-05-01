@@ -51,6 +51,7 @@ GamL = 0.4;
 x5 = [Vn;GamL;H;R];
 [tf, xf] = ode23('EqMotion', tspan, x5);
 
+% Plot the Results
 figure
 subplot(2,1,2)
 plot(xa(:,4),xa(:,3))
@@ -76,19 +77,47 @@ title('Varying Gamma at Nomial Velocity')
 Vrand = 2 + (7.5 - 2).*rand(100,1);
 Grand = -0.4 + (0.5 +0.4).*rand(100,1);
 
-%Plot Details
+% Plot Details
+
+range = nan * zeros(length(tspan),100);
+height = nan * zeros(length(tspan),100);
+tspan1 = 0:0.1:6;
+
 figure 
 hold on
-for i = 1:1:100
+
+for i = 1:100
     xrand = [Vrand(i,:), Grand(i,:), H, R];
-    [tR, xR] = ode23('EqMotion', tspan, xrand);
+    [tR, xR] = ode23('EqMotion', tspan1, xrand);
 
     plot(xR(:,4), xR(:,3), 'Color', 'k')
 
-    i = i + 1;
+    % height and range parameters for Q4
+    range(1:61, i) = xR(:,4);
+    height(1:61, i) = xR(:,3);
+    
 end
+hold on
 title('Varying Velocity and Gamma within Higher and Lower Range')
 xlabel('Range, m'), ylabel('Height, m'), grid
+
+
+%% Question 4
+
+
+% Average height and range
+ for j = 1:61
+    avgRange(j) = mean(range(j,:));
+    avgHeight(j) = mean(height(j,:));
+
+ end
+
+% Fit polynomials to average height and range
+p1 = polyfit(tspan1, avgRange, 1);
+y_fit1 = polyval(p1, tspan1);
+p2 = polyfit(tspan1, avgHeight, 5);
+y_fit2 = polyval(p2, tspan1);
+
 
 
 
