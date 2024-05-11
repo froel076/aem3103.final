@@ -71,6 +71,32 @@ plot(xf(:,4),xf(:,3), "color", 'r')
 xlabel('Range, m'), ylabel('Height, m'), grid
 title('Varying Gamma at Nomial Velocity')
 
+%% Point-Mass Animation
+
+x6 = [Vh;GamH;H;R];
+[tg, xg] = ode23('EqMotion', tspan, x6);
+
+nominal_line= animatedline('Color', 'blue', 'LineWidth', 2);
+higher_line = animatedline('Color', 'red', 'LineStyle', '--', 'LineWidth', 2);
+
+trajectory = @(tspan1, V, Gam) [tspan1.*V.*cos(Gam), tspan1.*V.*sin(Gam) - 0.5*9.81*tspan1.^2];
+tspan1 = 0:0.1:6;
+
+figure
+hold on
+
+for i = 1:length(tspan1)
+    plot(xc(i,1), xc(i,2), 'bo', 'MarkerSize', 10); 
+    plot(xg(i,1), xg(i,2), 'ro', 'MarkerSize', 10);
+    pause(0.6); 
+    drawnow;
+end
+filename = 'trajectory_animation.gif';
+frame = getframe(gcf);
+imwrite(frame.cdata, filename, 'gif', 'Loopcount', inf);
+
+disp('Animation saved as trajectory_animation.gif');
+
 %% Question 3
 
 
@@ -81,7 +107,7 @@ Grand = -0.4 + (0.5 +0.4).*rand(100,1);
 
 range = nan * zeros(length(tspan),100);
 height = nan * zeros(length(tspan),100);
-tspan1 = 0:0.1:6;
+
 
 figure 
 hold on
@@ -154,4 +180,7 @@ subplot(2,1,2);
 plot(tspan1, eqn2);
 xlabel ('Time, s'); ylabel('Altitude, m');
 title('Derivative of Height with Respect to Time')
+
+
+
 
