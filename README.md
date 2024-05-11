@@ -48,6 +48,10 @@ to this graph.
 These images show the derivative of range with respect to time and height with respect to time. The range equation is a first degree polynomial which is why its graph is linear. The height equation is a fifth
 degree polynomial which is why its graph is non-linear.
  
+ # Animation
+  ## Point-Mass Animation
+  Below is the figure of the ending of the animation. We weren't able to figure out how to convert this into a gif.
+  ![image](https://github.com/froel076/aem3103.final/assets/168198103/e79850ca-e908-4cd0-8bca-53c69681446b)
 
 
  
