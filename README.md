@@ -39,7 +39,6 @@ graph.
 This graph shows the height and range of a 100 trajectories from randomly chosen gamma's and velocity's. All these trajectories have similar paths and the average of these was found from a polynomial curvefitted
 to this graph. 
 
-  Briefly describe what is being shown in the figure.
 
  ## Fig. 3: Time Derivatives
  <Time-derivative of height and range for the fitted trajectory>
@@ -50,7 +49,5 @@ These images show the derivative of range with respect to time and height with r
 degree polynomial which is why its graph is non-linear.
  
 
-
-  Briefly describe what is being shown in the figure.
 
  
