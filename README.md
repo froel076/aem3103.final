@@ -1,7 +1,7 @@
 # Paper Airplane Numerical Study
   Final Project: AEM 3103 Spring 2024
 
-  - By: Ellen Froelich
+  - By: Ellen Froelich and Maya Nalezny
 
   ## Summary of Findings
   <Show the variations studied in a table>
